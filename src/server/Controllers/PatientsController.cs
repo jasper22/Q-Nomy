@@ -15,7 +15,7 @@ namespace QNomy.Controllers
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiVersion("1.0")]
     public class PatientsController : ControllerBase
     {

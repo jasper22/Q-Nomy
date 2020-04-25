@@ -21,14 +21,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{B8B13F
 		src\client\.gitignore = src\client\.gitignore
 		src\client\angular.json = src\client\angular.json
 		src\client\browserslist = src\client\browserslist
+		src\client\karma.conf.js = src\client\karma.conf.js
 		src\client\package-lock.json = src\client\package-lock.json
 		src\client\package.json = src\client\package.json
 		src\client\README.md = src\client\README.md
+		src\client\tsconfig.app.json = src\client\tsconfig.app.json
 		src\client\tsconfig.json = src\client\tsconfig.json
 		src\client\tslint.json = src\client\tslint.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4E11E6CD-851D-4926-B978-31213360445A}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\favicon.ico = src\client\src\favicon.ico
+		src\client\src\index.html = src\client\src\index.html
+		src\client\src\main.ts = src\client\src\main.ts
+		src\client\src\polyfills.ts = src\client\src\polyfills.ts
+		src\client\src\styles.css = src\client\src\styles.css
+		src\client\src\test.ts = src\client\src\test.ts
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA2093C2-9818-48DD-B719-8906465F1E1A}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,6 +48,76 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QNomy.Test", "src\QNomy.Test\QNomy.Test.csproj", "{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".vscode", ".vscode", "{2AB51A2A-081C-4329-8118-0871CA8DECEF}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\.vscode\launch.json = src\client\.vscode\launch.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "e2e", "e2e", "{4F347209-6288-4333-B436-6ACBE66952B7}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\e2e\protractor.conf.js = src\client\e2e\protractor.conf.js
+		src\client\e2e\tsconfig.json = src\client\e2e\tsconfig.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{05A01B13-773C-4A0B-9F02-18C3B3068B25}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\e2e\src\app.e2e-spec.ts = src\client\e2e\src\app.e2e-spec.ts
+		src\client\e2e\src\app.po.ts = src\client\e2e\src\app.po.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{3980E926-747A-46DD-9CF4-30B5E2210C76}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\app.component.css = src\client\src\app\app.component.css
+		src\client\src\app\app.component.html = src\client\src\app\app.component.html
+		src\client\src\app\app.component.spec.ts = src\client\src\app\app.component.spec.ts
+		src\client\src\app\app.component.ts = src\client\src\app\app.component.ts
+		src\client\src\app\app.module.ts = src\client\src\app\app.module.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{B9605B5C-3138-4565-A594-95F240721029}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\assets\.gitkeep = src\client\src\assets\.gitkeep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "environments", "environments", "{C1DA2B2D-554C-43EB-A1FA-CD45014DB5B4}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\environments\environment.prod.ts = src\client\src\environments\environment.prod.ts
+		src\client\src\environments\environment.ts = src\client\src\environments\environment.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{23CBE714-D341-4A14-8CA8-B4D554F71348}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\data\patient.ts = src\client\src\app\data\patient.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "main", "main", "{70575E5D-5176-4631-9A4B-AA35BADF309C}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\main\main.component.css = src\client\src\app\main\main.component.css
+		src\client\src\app\main\main.component.html = src\client\src\app\main\main.component.html
+		src\client\src\app\main\main.component.spec.ts = src\client\src\app\main\main.component.spec.ts
+		src\client\src\app\main\main.component.ts = src\client\src\app\main\main.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "not-exist", "not-exist", "{6618B7CF-88A8-455F-9752-9544F8FBDC82}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\not-exist\not-exist.component.css = src\client\src\app\not-exist\not-exist.component.css
+		src\client\src\app\not-exist\not-exist.component.html = src\client\src\app\not-exist\not-exist.component.html
+		src\client\src\app\not-exist\not-exist.component.spec.ts = src\client\src\app\not-exist\not-exist.component.spec.ts
+		src\client\src\app\not-exist\not-exist.component.ts = src\client\src\app\not-exist\not-exist.component.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "routing", "routing", "{54892122-29FB-47BD-902F-FE288E88055D}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\routing\app-routing.module.ts = src\client\src\app\routing\app-routing.module.ts
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{F94108A5-CB39-47D2-9171-FB49ED63EC6E}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\src\app\services\patients.service.spec.ts = src\client\src\app\services\patients.service.spec.ts
+		src\client\src\app\services\patients.service.ts = src\client\src\app\services\patients.service.ts
+		src\client\src\app\services\patientsCollection.ts = src\client\src\app\services\patientsCollection.ts
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +143,17 @@ Global
 		{B8B13F44-1A11-4E69-8D3B-F0C93CA8160D} = {119D4E31-4617-4C41-B326-3DD4825108C3}
 		{4E11E6CD-851D-4926-B978-31213360445A} = {B8B13F44-1A11-4E69-8D3B-F0C93CA8160D}
 		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888} = {F045BFC5-3FEA-4B1E-8245-08A184E1D820}
+		{2AB51A2A-081C-4329-8118-0871CA8DECEF} = {B8B13F44-1A11-4E69-8D3B-F0C93CA8160D}
+		{4F347209-6288-4333-B436-6ACBE66952B7} = {B8B13F44-1A11-4E69-8D3B-F0C93CA8160D}
+		{05A01B13-773C-4A0B-9F02-18C3B3068B25} = {4F347209-6288-4333-B436-6ACBE66952B7}
+		{3980E926-747A-46DD-9CF4-30B5E2210C76} = {4E11E6CD-851D-4926-B978-31213360445A}
+		{B9605B5C-3138-4565-A594-95F240721029} = {4E11E6CD-851D-4926-B978-31213360445A}
+		{C1DA2B2D-554C-43EB-A1FA-CD45014DB5B4} = {4E11E6CD-851D-4926-B978-31213360445A}
+		{23CBE714-D341-4A14-8CA8-B4D554F71348} = {3980E926-747A-46DD-9CF4-30B5E2210C76}
+		{70575E5D-5176-4631-9A4B-AA35BADF309C} = {3980E926-747A-46DD-9CF4-30B5E2210C76}
+		{6618B7CF-88A8-455F-9752-9544F8FBDC82} = {3980E926-747A-46DD-9CF4-30B5E2210C76}
+		{54892122-29FB-47BD-902F-FE288E88055D} = {3980E926-747A-46DD-9CF4-30B5E2210C76}
+		{F94108A5-CB39-47D2-9171-FB49ED63EC6E} = {3980E926-747A-46DD-9CF4-30B5E2210C76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1234E8AC-5A29-4662-9B1A-2BF25641C6CF}

@@ -61,6 +61,7 @@ namespace QNomy
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddApplicationInsightsTelemetry();
         }
 
         /// <summary>
