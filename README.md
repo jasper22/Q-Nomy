@@ -41,3 +41,8 @@ Everything used with default settings without additional installation. Just simp
 ### Running
 1. Enter into `Q-Nomy\src\server` folder and run the server by command: `dotnet run`. Server should start and listening on http://localhost on port 5000 
 2. Enter into `Q-Nomy\src\client` folder and start the client app by running `ng serve`. Once client is started navigate your browser to: [http://localhost:4200/](http://localhost:4200/)
+
+
+### Additional notes
+1. Application should be translated to Hebrew as in original Q-Nomy request
+2. More tests should be added to `QNomy.Test` project
