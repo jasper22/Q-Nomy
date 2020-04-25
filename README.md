@@ -4,7 +4,7 @@ Q-Nomy home assigment
 עליך ליצור עמוד אינטרנט שבו כל משתמש יכול להכניס לתור, לקרוא לממתין ולצפות ברשימת הממתינים.
 העמוד צריך להיראות באופן הבא:
 
-![example view](https://github.com/jasper22/Q-Nomy/docs/view01.png)
+![example view](docs/view01.png)
 
  	כל הרשומות ישמרו בDB לפי סטטוס הפניה הנוכחי שלהם:
 סטטוס ממתין: 0
