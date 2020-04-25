@@ -1,0 +1,551 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QNomy</name>
+    </assembly>
+    <members>
+        <member name="T:QNomy.Controllers.PatientsCollection">
+            <summary>
+            <c>PatientsCollection</c>
+            </summary>
+        </member>
+        <member name="P:QNomy.Controllers.PatientsCollection.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:QNomy.Controllers.PatientsCollection.TotalCount">
+            <summary>
+            Gets or sets the total count.
+            </summary>
+            <value>
+            The total count.
+            </value>
+        </member>
+        <member name="P:QNomy.Controllers.PatientsCollection.PagesCount">
+            <summary>
+            Gets or sets the pages count.
+            </summary>
+            <value>
+            The pages count.
+            </value>
+        </member>
+        <member name="T:QNomy.Controllers.PatientsController">
+            <summary>
+            <c>PatientsController</c>
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:QNomy.Controllers.PatientsController.#ctor(QNomy.SQL.IRepository,Microsoft.Extensions.Logging.ILogger{QNomy.Controllers.PatientsController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.Controllers.PatientsController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:QNomy.Controllers.PatientsController.GetPatients(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets the all patients that is not handled
+            </summary>
+            <returns>Collection of <see cref="T:QNomy.Data.Patient"/> object if possible</returns>
+        </member>
+        <member name="M:QNomy.Controllers.PatientsController.AddPatient(QNomy.Controllers.NewPatientRequest)">
+            <summary>
+            Add new patient to database
+            </summary>
+            <param name="patientName">Name of the patient.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QNomy.Controllers.PatientsController.HandlePatient(QNomy.Data.Patient)">
+            <summary>
+            Handles the pation.
+            </summary>
+            <param name="patient">The patient.</param>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.Data.IPatient">
+            <summary>
+            <c>IPatient</c>
+            </summary>
+        </member>
+        <member name="P:QNomy.Data.IPatient.Handled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:QNomy.Data.IPatient"/> is handled.
+            </summary>
+            <value>
+              <c>true</c> if handled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.IPatient.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.IPatient.TicketNumber">
+            <summary>
+            Gets or sets the ticket number.
+            </summary>
+            <value>
+            The ticket number.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.IPatient.Time">
+            <summary>
+            Gets or sets the time.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="M:QNomy.Data.IPatient.ToString">
+            <summary>
+            Converts to string.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:QNomy.Data.Patient">
+            <summary>
+            <c>Patient</c>
+            </summary>
+        </member>
+        <member name="P:QNomy.Data.Patient.TicketNumber">
+            <summary>
+            Gets or sets the ticket number.
+            </summary>
+            <value>
+            The ticket number.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.Patient.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.Patient.Time">
+            <summary>
+            Gets or sets the appointment time.
+            </summary>
+            <value>
+            The time appointment time.
+            </value>
+        </member>
+        <member name="P:QNomy.Data.Patient.Handled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:QNomy.Data.Patient"/> is handled.
+            </summary>
+            <value>
+              <c>true</c> if handled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:QNomy.Data.Patient.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:QNomy.Data.Patient.Equals(QNomy.Data.Patient)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+              <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:QNomy.Data.Patient.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:QNomy.Data.Patient.op_Equality(QNomy.Data.Patient,QNomy.Data.Patient)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:QNomy.Data.Patient.op_Inequality(QNomy.Data.Patient,QNomy.Data.Patient)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:QNomy.Data.Patient.ToString">
+            <summary>
+            Converts to string.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:QNomy.Migrations.InitialScheme">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
+        </member>
+        <member name="M:QNomy.Migrations.InitialScheme.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            <para>
+            Builds the operations that will migrate the database 'up'.
+            </para>
+            <para>
+            That is, builds the operations that will take the database from the state left in by the
+            previous migration so that it is up-to-date with regard to this migration.
+            </para>
+            <para>
+            This method must be overridden in each class the inherits from <see cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />.
+            </para>
+            </summary>
+            <param name="migrationBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" /> that will build the operations.</param>
+        </member>
+        <member name="M:QNomy.Migrations.InitialScheme.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            <para>
+            Builds the operations that will migrate the database 'down'.
+            </para>
+            <para>
+            That is, builds the operations that will take the database from the state left in by
+            this migration so that it returns to the state that it was in before this migration was applied.
+            </para>
+            <para>
+            This method must be overridden in each class the inherits from <see cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" /> if
+            both 'up' and 'down' migrations are to be supported. If it is not overridden, then calling it
+            will throw and it will not be possible to migrate in the 'down' direction.
+            </para>
+            </summary>
+            <param name="migrationBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" /> that will build the operations.</param>
+        </member>
+        <member name="T:QNomy.Program">
+            <summary>
+            <c>Program</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:QNomy.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:QNomy.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:QNomy.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:QNomy.Properties.Resources.GeneralDbExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Exception occurred while trying to communicate with database.
+            </summary>
+        </member>
+        <member name="P:QNomy.Properties.Resources.PatientNotFoundInDbException">
+            <summary>
+              Looks up a localized string similar to Patient: {0} is not found in database.
+            </summary>
+        </member>
+        <member name="T:QNomy.SQL.Exceptions.ApplicationMessages">
+            <summary>
+            <c>ApplicationMessages</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.ApplicationMessages.GeneralDbExceptionMessage">
+            <summary>
+            Generals the database exception message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.ApplicationMessages.PatientIsNotFound(QNomy.Data.IPatient)">
+            <summary>
+            Patients the is not found in database
+            </summary>
+            <param name="patient">The patient.</param>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.SQL.Exceptions.GeneralDbException">
+            <summary>
+            <c>GeneralDbException</c>
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.GeneralDbException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.GeneralDbException"/> class.
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.GeneralDbException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.GeneralDbException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.GeneralDbException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.GeneralDbException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (<see langword="Nothing" /> in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.GeneralDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.GeneralDbException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:QNomy.SQL.Exceptions.PostException">
+            <summary>
+            <c>PostException</c>
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.PostException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.PostException"/> class.
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.PostException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.PostException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.PostException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.PostException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (<see langword="Nothing" /> in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:QNomy.SQL.Exceptions.PostException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Exceptions.PostException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:QNomy.SQL.IPatientsDbContext">
+            <summary>
+            <c>IPatientsDbContext</c>
+            </summary>
+        </member>
+        <member name="P:QNomy.SQL.IPatientsDbContext.Patients">
+            <summary>
+            Gets or sets the patients <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/>
+            </summary>
+            <value>
+            The patients <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/>
+            </value>
+        </member>
+        <member name="M:QNomy.SQL.IPatientsDbContext.SaveChangesAsync">
+            <summary>
+            Saves the changes to database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.SQL.IRepository">
+            <summary>
+            <c>IRepository</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.IRepository.TotalNumberOfRecords">
+            <summary>
+            Totals the number of all records in database of patients that is not handled.
+            </summary>
+            <returns>Totals the number of all records in database of patients that is not handled.</returns>
+        </member>
+        <member name="M:QNomy.SQL.IRepository.GetAllPatients(System.Int32,System.Int32)">
+            <summary>
+            Gets all patients.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QNomy.SQL.IRepository.AddPatient(QNomy.Data.IPatient)">
+            <summary>
+            Adds the patient.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>Fully constrcuted <see cref="T:QNomy.Data.IPatient"/> object</returns>
+        </member>
+        <member name="M:QNomy.SQL.IRepository.GetLastPatient">
+            <summary>
+            Gets the last patient that was inserted
+            </summary>
+            <returns>Fulle constructed <see cref="T:QNomy.Data.Patient"/> object</returns>
+        </member>
+        <member name="M:QNomy.SQL.IRepository.SetPatientHandled(QNomy.Data.IPatient)">
+            <summary>
+            Sets the patient to status handled.
+            </summary>
+            <param name="patient">The patient.</param>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.SQL.PatientsDbContext">
+            <summary>
+            <c>PatientsDbContext</c>
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:QNomy.SQL.PatientsDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{QNomy.SQL.PatientsDbContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.PatientsDbContext"/> class.
+            </summary>
+            <param name="dbContextOptions">The database context options.</param>
+        </member>
+        <member name="P:QNomy.SQL.PatientsDbContext.Patients">
+            <summary>
+            Gets or sets the patients.
+            </summary>
+            <value>
+            The patients.
+            </value>
+        </member>
+        <member name="M:QNomy.SQL.PatientsDbContext.SaveChangesAsync">
+            <summary>
+            Saves the changes to database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QNomy.SQL.Repository">
+            <summary>
+            <c>Repository</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.Repository.#ctor(QNomy.SQL.IPatientsDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.SQL.Repository"/> class.
+            </summary>
+            <param name="patientsDbContext">The patients database context.</param>
+        </member>
+        <member name="M:QNomy.SQL.Repository.TotalNumberOfRecords">
+            <summary>
+            Totals the number of all records in database of patients that is not handled.
+            </summary>
+            <returns>
+            Totals the number of all records in database of patients that is not handled.
+            </returns>
+        </member>
+        <member name="M:QNomy.SQL.Repository.GetAllPatients(System.Int32,System.Int32)">
+            <summary>
+            Gets all patients.
+            </summary>
+            <returns></returns> 
+            <exception cref="T:QNomy.SQL.Exceptions.GeneralDbException"></exception>
+        </member>
+        <member name="M:QNomy.SQL.Repository.AddPatient(QNomy.Data.IPatient)">
+            <summary>
+            Adds the patient.
+            </summary>
+            <param name="patient">The patient.</param>
+            <returns></returns>
+            <exception cref="T:QNomy.SQL.Exceptions.GeneralDbException"></exception>
+        </member>
+        <member name="M:QNomy.SQL.Repository.GetLastPatient">
+            <summary>
+            Gets the last patient that was inserted
+            </summary>
+            <returns>
+            Fulle constructed <see cref="T:QNomy.Data.Patient" /> object
+            </returns>
+        </member>
+        <member name="M:QNomy.SQL.Repository.SetPatientHandled(QNomy.Data.IPatient)">
+            <summary>
+            Sets the patient to status handled.
+            </summary>
+            <param name="patient">The patient.</param>
+            <exception cref="T:QNomy.SQL.Exceptions.GeneralDbException">
+            </exception>
+        </member>
+        <member name="T:QNomy.SQL.RepositoryEx">
+            <summary>
+            <c>Repository</c> class extensions
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.RepositoryEx.ActualPatients(Microsoft.EntityFrameworkCore.DbSet{QNomy.Data.Patient})">
+            <summary>
+            Actuals the patients - that's it - patients that is not handled
+            </summary>
+            <param name="dbSet">The database set.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QNomy.SQL.RepositoryEx.AssureNotNull(System.Collections.Generic.IEnumerable{QNomy.Data.IPatient})">
+            <summary>
+            Assures that input enumerable is not null.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>The provided enumerable if it's not null or empty sequence</returns>
+        </member>
+        <member name="T:QNomy.Startup">
+            <summary>
+            <c>Startup</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:QNomy.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:QNomy.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:QNomy.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:QNomy.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>

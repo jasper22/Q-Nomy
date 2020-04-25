@@ -1,0 +1,128 @@
+<div class="waiting-overlay" *ngIf="showOverlay">
+  <h4>Please wait. Loading data...</h4>
+  <div class="progress" style="margin-left: auto;margin-right: auto; width: 80%;">
+      <div class="progress loop"><progress></progress></div>
+      <span class="danger-text">
+          <clr-icon size="24" shape="exclamation-circle">;</clr-icon>
+          Connection to database timed out. >
+          <a>Try again</a>
+      </span>
+  </div>
+</div>
+
+<div class="waiting-overlay" *ngIf="showError">
+  <div class="modal">
+    <div class="modal-dialog modal-lg" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Error occurred</h3>
+            </div>
+            <div class="modal-body">
+                <p>Error occurred while trying to communicate with remote server ! <br /><br />Please contact your administrator</p>
+                <br />
+                <p>{{errorDescription}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-danger" type="button" (click)="retryLoad()">Retry</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade in" aria-hidden="true"></div>
+</div>
+
+<div class="clr-row clr-justify-content-center">
+  <div class="clr-col-2"></div>
+
+  <div class="clr-col clr-align-self-center">
+    <form class="clr-form clr-form-horizontal">
+      <div class="clr-form-control clr-row">
+        <label class="clr-control-label clr-col-12 clr-col-md-2">Patient name</label>
+        <div class="clr-col-12 clr-col-md-10">
+            <button style="float: right;" disabled="{{patientName.errors}}" [clrLoading]="addPatientButtonState" class="btn btn-success-outline" (click)="addPatientName()">Add patient</button>
+            <input id="patientName" class="clr-input clr-col-9 clr-col-md-9" placeholder="Enter patient name here" [formControl]="patientName" />
+            <div *ngIf="patientName.errors && (patientName.dirty || patientName.touched)" class="alert alert-danger">
+              <div *ngIf="patientName.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="patientName.errors.minlength">
+                Name must be at least 3 characters long.
+              </div>
+              <div *ngIf="patientName.errors.incorrectName">
+                This is incorrect name ! Must be at least 2 words
+              </div>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clr-col-2"></div>
+</div>
+
+<div class="clr-row clr-justify-content-center" style="margin-top: 60px;">
+  <div class="clr-col-2"></div>
+
+  <div class="clr-col clr-align-self-center">
+    <button style="float: right;" [clrLoading]="callNextPatientButtonState" [disabled]="allPatients.length < 1" class="btn btn-success-outline" (click)="callNextPatient()">Call next patient</button>
+
+    <table class="table" >
+      <thead>
+          <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Time</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>{{currentPatient?.ticketNumber}}</td>
+              <td>{{currentPatient?.name}}</td>
+              <td>{{currentPatient?.time | date:'medium'}}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+
+  <div class="clr-col-2"></div>
+</div>
+
+<div class="clr-row clr-justify-content-center" style="margin-top: 60px;">
+  <div class="clr-col-2"></div>
+
+  <div class="clr-col clr-align-self-center">
+    <a class="label label-blue clickable" style="float: right;">
+      Waiting list
+      <span class="badge">{{allPatients.length}}</span>
+  </a>
+  <br/>
+
+    <clr-datagrid *ngIf="allPatients.length > 0" (clrDgRefresh)="refreshDataGrid($event)">
+      <clr-dg-column>Number</clr-dg-column>
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Time</clr-dg-column>
+
+      <clr-dg-row *ngFor="let patient of allPatients">
+          <clr-dg-cell>{{patient.ticketNumber}}</clr-dg-cell>
+          <clr-dg-cell>{{patient.name}}</clr-dg-cell>
+          <clr-dg-cell>{{patient.time | date:'medium' }}</clr-dg-cell>
+      </clr-dg-row>
+
+      <clr-dg-footer>
+        Rows per page
+        <select style="margin-right: 11px" [(ngModel)]="pageSize" (change)="pageSizeChange($event)">
+          <option value="10">10</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+
+        <clr-dg-pagination #pagination [clrDgPageSize]="pageSize" [(clrDgPage)]="currentPage" [clrDgTotalItems]="totalNumberOfRecords">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} users
+        </clr-dg-pagination>
+      </clr-dg-footer>
+  </clr-datagrid>
+  </div>
+
+  <div class="clr-col-2"></div>
+</div>
+

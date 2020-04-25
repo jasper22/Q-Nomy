@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QNomy", "src\server\QNomy.csproj", "{23D2657C-BF69-4A68-B76B-259F48FB442C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1072C6A7-0177-4305-A981-9E55C53D66A9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\view01.png = docs\view01.png
+		docs\מבחן Callflow (002).docx = docs\מבחן Callflow (002).docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{119D4E31-4617-4C41-B326-3DD4825108C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{F045BFC5-3FEA-4B1E-8245-08A184E1D820}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{B8B13F44-1A11-4E69-8D3B-F0C93CA8160D}"
+	ProjectSection(SolutionItems) = preProject
+		src\client\.editorconfig = src\client\.editorconfig
+		src\client\.gitignore = src\client\.gitignore
+		src\client\angular.json = src\client\angular.json
+		src\client\browserslist = src\client\browserslist
+		src\client\package-lock.json = src\client\package-lock.json
+		src\client\package.json = src\client\package.json
+		src\client\README.md = src\client\README.md
+		src\client\tsconfig.json = src\client\tsconfig.json
+		src\client\tslint.json = src\client\tslint.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4E11E6CD-851D-4926-B978-31213360445A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA2093C2-9818-48DD-B719-8906465F1E1A}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QNomy.Test", "src\QNomy.Test\QNomy.Test.csproj", "{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23D2657C-BF69-4A68-B76B-259F48FB442C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D2657C-BF69-4A68-B76B-259F48FB442C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D2657C-BF69-4A68-B76B-259F48FB442C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D2657C-BF69-4A68-B76B-259F48FB442C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23D2657C-BF69-4A68-B76B-259F48FB442C} = {F045BFC5-3FEA-4B1E-8245-08A184E1D820}
+		{F045BFC5-3FEA-4B1E-8245-08A184E1D820} = {119D4E31-4617-4C41-B326-3DD4825108C3}
+		{B8B13F44-1A11-4E69-8D3B-F0C93CA8160D} = {119D4E31-4617-4C41-B326-3DD4825108C3}
+		{4E11E6CD-851D-4926-B978-31213360445A} = {B8B13F44-1A11-4E69-8D3B-F0C93CA8160D}
+		{B44D67E7-BF0E-46C8-B0A9-69E0076BA888} = {F045BFC5-3FEA-4B1E-8245-08A184E1D820}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1234E8AC-5A29-4662-9B1A-2BF25641C6CF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+.waiting-overlay {
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  background-color: rgba(0,0,0,0.9) !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  transition: visibility 0s, opacity 0.4s linear !important;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-around;
+  cursor: wait !important;
+}
+
+.waiting-overlay h4 {
+  color: whitesmoke;
+}
