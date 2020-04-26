@@ -61,6 +61,7 @@ namespace QNomy
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             services.AddApplicationInsightsTelemetry();
         }
 
@@ -76,7 +77,7 @@ namespace QNomy
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

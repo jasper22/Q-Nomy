@@ -25,6 +25,11 @@ Q-Nomy home assigment
 
 Everything used with default settings without additional installation. Just simple Next, Next, Next should be fine
 
+### Remarks
+
+* For some strange reason I personally run into this issue: [Failed to start 'npm': Ensure that 'npm' is installed and can be found in one of the PATH directories](https://github.com/dotnet/aspnetcore/issues/18201) and most of the solutions failed to resolve [Stackoverflow](https://stackoverflow.com/questions/59367072/failed-to-start-npm-ensure-that-npm-is-installed-and-can-be-found).
+So I devided this project to 2: Client (Angular) and Server (.NET Core only WebAPI)
+
 ### Installing
 
 1. Clone this git repostiory: `git clone https://github.com/jasper22/Q-Nomy.git`
@@ -39,5 +44,5 @@ Everything used with default settings without additional installation. Just simp
 
 
 ### Running
-1. Enter into `Q-Nomy\src\server` folder and run the server by command: `dotnet run`. Server should start and listening on http://localhost on port 5000 
-2. Enter into `Q-Nomy\src\client` folder and start the client app by running `ng serve`. Once client is started navigate your browser to: [http://localhost:4200/](http://localhost:4200/)
+1. Enter into `Q-Nomy\src\server` folder and run the server by command: `dotnet run`. Server should start and listening on http://localhost on port 6287 
+2. Enter into `Q-Nomy\src\client` folder and start the client app by running `npm start`. Once client is started navigate your browser to: [http://localhost:6286/](http://localhost:6286/)
