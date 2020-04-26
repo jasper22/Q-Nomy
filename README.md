@@ -46,3 +46,9 @@ So I devided this project to 2: Client (Angular) and Server (.NET Core only WebA
 ### Running
 1. Enter into `Q-Nomy\src\server` folder and run the server by command: `dotnet run`. Server should start and listening on http://localhost on port 6287 
 2. Enter into `Q-Nomy\src\client` folder and start the client app by running `npm start`. Once client is started navigate your browser to: [http://localhost:6286/](http://localhost:6286/)
+
+### Additional notes
+1. Application should be translated to Hebrew as in original Q-Nomy request
+2. More tests should be added to `QNomy.Test` project
+3. Resolve strange issue when Angular and WebAPI could not be started both from VS 2019
+4. Dockerize both project + SQL server
