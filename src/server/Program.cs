@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using QNomy.SQL;
 
 namespace QNomy
 {
@@ -14,7 +15,10 @@ namespace QNomy
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args)
+                .Build()
+                .MigrateDatabase<PatientsDbContext>()
+                .Run();
         }
 
         /// <summary>

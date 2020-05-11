@@ -284,6 +284,17 @@
               Looks up a localized string similar to Patient: {0} is not found in database.
             </summary>
         </member>
+        <member name="T:QNomy.SQL.DatabaseMigration">
+            <summary>
+             <c>DatabaseMigration</c>
+            </summary>
+        </member>
+        <member name="M:QNomy.SQL.DatabaseMigration.MigrateDatabase``1(Microsoft.Extensions.Hosting.IHost)">
+            <summary>
+            Migrate/update database
+            </summary>
+            <param name="webHost"></param>
+        </member>
         <member name="T:QNomy.SQL.Exceptions.ApplicationMessages">
             <summary>
             <c>ApplicationMessages</c>

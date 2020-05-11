@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:6287/api/v1",
+      "applicationUrl": "http://*:5000/api/v1",
       "sslPort": 0
     }
   },
@@ -11,7 +11,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchUrl": "https://localhost:6287/api/v1/Patietns",
+      "launchUrl": "https://*:5000/api/v1/Patietns",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -21,7 +21,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:6287"
+      "applicationUrl": "http://*:5000"
     }
   }
 }
