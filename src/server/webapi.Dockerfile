@@ -5,7 +5,13 @@ COPY QNomy.csproj /app/
 RUN dotnet restore
 COPY . .
 ARG configuration=Release
-RUN dotnet publish --configuration ${configuration} --nologo --no-restore --output ./dist/out ./QNomy.csproj
+RUN dotnet publish                              \
+            --configuration ${configuration}    \
+            --nologo                            \
+            --no-restore                        \
+            --output ./dist/out                 \
+            ./QNomy.csproj
+
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 WORKDIR /app

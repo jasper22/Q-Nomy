@@ -4,8 +4,9 @@ WORKDIR /client
 COPY package.json .
 RUN npm install
 COPY . .
-ARG configuration=production
-RUN npm run build -- --outputPath=./dist/out --configuration=${configuration}
+# ARG configuration=production
+ARG configuration=kubernetes
+RUN npm run build -- --configuration=${configuration} --outputPath=./dist/out --deleteOutputPath=true --extractCss=true --aot=true --buildOptimizer=true
 
 # Build ngnix image
 FROM nginx:1.17.10 as nginx

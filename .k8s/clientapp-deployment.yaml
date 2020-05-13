@@ -1,32 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-frontend
+  labels:
+    app: q-nomy
+spec:
+    type: NodePort    
+    ports:
+    - nodePort: 30001
+      port: 80
+      # targetPort: 80
+    selector:
+        app: q-nomy
+        q.nomy: clientapp
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.21.0 (992df58d8)
-  creationTimestamp: null
   labels:
-    io.kompose.service: clientapp
+    app: q-nomy
+    tier: frontend
   name: clientapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: clientapp
+      app: q-nomy
+      q.nomy: clientapp
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.21.0 (992df58d8)
-      creationTimestamp: null
       labels:
-        io.kompose.network/local: "true"
-        io.kompose.service: clientapp
+        app: q-nomy
+        role: web-client        
+        q.nomy: clientapp
     spec:
       containers:
-      - image: clientapp
-        imagePullPolicy: ""
+      - image: clientapp:1.0
+        imagePullPolicy: "Never"
         name: clientapp
         ports:
         - containerPort: 80

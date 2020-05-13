@@ -51,18 +51,26 @@ export class PatientsService {
 
   private handleGetError(error: HttpErrorResponse) : Observable<PatientsCollection> {
 
+    console.error(`GET Error is: ${JSON.stringify(error)}`);
+
     this.httpErrorObs.next(error);
 
     return of({ "data" : [], "totalCount": 0, "pagesCount": 0});  // Empty array
   }
 
   private handlePostError(error: HttpErrorResponse) : Observable<PatientData> {
+
+    console.error(`POST Error is: ${JSON.stringify(error)}`);
+
     this.httpErrorObs.next(error);
 
     return of ({"ticketNumber": -1, "name": "", "time": ""});
   }
 
   private handlePutError(error: HttpErrorResponse) {
+
+    console.error(`PUT Error is: ${JSON.stringify(error)}`);
+
     this.httpErrorObs.next(error);
   }
 }
