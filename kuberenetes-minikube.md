@@ -13,6 +13,8 @@ sudo mkdir -p /usr/local/bin/
 sudo install minikube /usr/local/bin/
 ```
 
+Please note: I'm using [VirtualBox](https://www.virtualbox.org/) as a driver for minikube - so download if necessary or use your other: [Minikube drivers](https://minikube.sigs.k8s.io/docs/drivers/)
+
 ## Setup local Docker registry
 
 1. Create alias for docker registry. I choose `docker.local` but it can be anything. So - we edit `/etc/hosts` file and it should look like this:
@@ -115,14 +117,14 @@ More information here: [Deploy a registry server](https://docs.docker.com/regist
 3. Push it to local registry
     `docker push docker.local:5000/mcr.microsoft.com/dotnet/core/sdk:3.1`
 
-That's it - not his image is in local docker registry and will be pulled/used locally but only with this name: `docker.local:5000/mcr.microsoft.com/dotnet/core/sdk:3.1`
+That's it - now this image is in local docker registry and will be pulled/used locally but only with this name: `docker.local:5000/mcr.microsoft.com/dotnet/core/sdk:3.1`
 
   Check it:
   1. Remove image
     `docker rmi docker.local:5000/mcr.microsoft.com/dotnet/core/sdk:3.1`
   2. Pull it locally
     `docker pull docker.local:5000/mcr.microsoft.com/dotnet/core/sdk:3.1`
-  3. Voila !
+  3. Voila ! :)
 
 
 ## Start minikube
