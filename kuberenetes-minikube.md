@@ -132,14 +132,14 @@ That's it - now this image is in local docker registry and will be pulled/used l
 There's a lot of options to start minkube. Here is mine:
 
 ```bash
-/usr/local/bin/minikube start --driver="virtualbox" --host-dns-resolver=true --memory='8g' --nodes=1 --cpus=6 --dns-proxy=true --insecure-registry="docker.local:5000"
-/usr/local/bin/minikube addons enable dashboard
-/usr/local/bin/minikube addons enable ingress
-/usr/local/bin/minikube addons enable ingress-dns
-/usr/local/bin/minikube addons enable logviewer
-/usr/local/bin/minikube addons enable metrics-server
-/usr/local/bin/minikube addons enable registry
-/usr/local/bin/minikube addons enable registry-aliases
+minikube start --driver="virtualbox" --host-dns-resolver=true --memory='8g' --nodes=1 --cpus=6 --dns-proxy=true --insecure-registry="docker.local:5000"
+minikube addons enable dashboard
+minikube addons enable ingress
+minikube addons enable ingress-dns
+minikube addons enable logviewer
+minikube addons enable metrics-server
+minikube addons enable registry
+minikube addons enable registry-aliases
 ```
 
 *I starting it with 1 node that has 6 CPU's and 8 Gigabyte of memory. All other settings (ex: disk-size) is default*
