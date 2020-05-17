@@ -44,30 +44,28 @@ sudo install minikube /usr/local/bin/
     ![docker-sysctl](assets/docker-sysctl.png)
 
     Please note that docker systemctl file loaded from (in the second line where it says: Loaded ...):  
-<br />
 
     >Loaded: loaded (**/lib/systemd/system/docker.service;** disabled; vendor preset: enabled)
 
-    *You could have a different location/path*
-<br />    
+    *You could have a different location/path*  
 
-    so we edit this file with `sudo` privileges:
-<br />
-    1. Stop docker: `sudo systemctl stop docker.service`
 
-    2. Edit: `sudo vi /lib/systemd/system/docker.service`
-<br />
 
-    Find the line that says: `ExecStart=.....` and append to it: `--insecure-registry docker.local:5000 --insecure-registry 192.168.1.3:5000 --insecure-registry 10.0.0.0/24`
-<br />
-    * We added `docker.local:5000` as insecure (not HTTPS) docker registry
-    * We added the same registry but as edge IP address. My computer has local address: 192.168.1.3 but you should check your address
-    * We added future minikube/kubernetes docker registry address at: 10.0.0.0/24 range (**before we started the minikube/kubernetes**)
-<br />
+  so we edit this file with `sudo` privileges:
 
-    File should look like this:
+   1. Stop docker: `sudo systemctl stop docker.service`
+   2. Edit: `sudo vi /lib/systemd/system/docker.service`
+
+   Find the line that says: `ExecStart=.....` and append to it: `--insecure-registry docker.local:5000 --insecure-registry 192.168.1.3:5000 --insecure-registry 10.0.0.0/24`
+
+  * We added `docker.local:5000` as insecure (not HTTPS) docker registry
+  * We added the same registry but as edge IP address. My computer has local address: 192.168.1.3 but you should check your address
+  * We added future minikube/kubernetes docker registry address at: 10.0.0.0/24 range (**before we started the minikube/kubernetes**)
+
+
+  File should look like this:
     
-    ```bash
+   ```bash
     [Unit]
     Description=Docker Application Container Engine
     Documentation=https://docs.docker.com
@@ -86,7 +84,7 @@ sudo install minikube /usr/local/bin/
 
     # Start docker registry
     #ExecStartPost=sleep 2s && /usr/bin/docker run -d -p 5000:5000 --restart=always --name registry registry:2
-    ```
+   ```
 
 ... cutted here for brevity ...
 
