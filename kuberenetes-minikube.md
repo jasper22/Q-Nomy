@@ -41,7 +41,7 @@ Please note: I'm using [VirtualBox](https://www.virtualbox.org/) as a driver for
     sudo systemctl status docker.service
     ```
 
-    you should get an image similar to this:
+    you should get an output similar to this:
 
     ![docker-sysctl](assets/docker-sysctl.png)
 
