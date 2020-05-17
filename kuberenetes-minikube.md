@@ -228,12 +228,13 @@ Now - save this file and exit back to shell.
 
     and you can see the image `docker.local:5000/clientapp` that I build on my machine and pushed it to local `docker.local:5000` registry. Now those images visible from minkube docker registry also.
 
-    8. Exit minikube ssh - just type `exit` on command prompt and you should return to your machine.
+
+9. Exit minikube ssh. (just type `exit` on command prompt and you should return to your machine)
 
 
 ## Using images in Deployments, Services, etc...
 
-  When you define container path in your Service, Deployment, etc.. YAML file define it like this:
+  When you define container path in your Service, Deployment, etc.. YAML file definitions could look like this:
 
 ```yaml
 apiVersion: apps/v1
@@ -243,7 +244,7 @@ labels:
     ...
 name: ...
 spec:
-replicas: 1
+replicas: .
 selector:
     matchLabels:
     ...
@@ -260,13 +261,13 @@ template:
         ports:
         - containerPort: ...
         - containerPort: ...
-    restartPolicy: Always
+    restartPolicy: ...
     serviceAccountName: ""
-    volumes: null
+    volumes: ...
 status: {}    
 ```
 
-So container name defined exactly as we `tagged` it before pushed to local docker registry.
+So container name defined exactly as we `tagged` it before `pushed` to local docker registry.
 
 That's it ! :)
 
