@@ -1,4 +1,4 @@
-# Kebernetes (minikube) installation process
+# Kebernetes (minikube) installation and using  process
 
 ## Linux install
 
