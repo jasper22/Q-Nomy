@@ -228,8 +228,24 @@ Now - save this file and exit back to shell.
 
     and you can see the image `docker.local:5000/clientapp` that I build on my machine and pushed it to local `docker.local:5000` registry. Now those images visible from minkube docker registry also.
 
+9. In any case (sometimes it help in restart of minikube) add the following line to `/etc/hosts` file:
+  ```bash
+  192.168.1.3   docker.local  # 192.168.1.3 is an address of my computer
+  ```
 
-9. Exit minikube ssh. (just type `exit` on command prompt and you should return to your machine)
+  so the file should look like this:
+
+  ```bash
+  $ cat /etc/hosts
+  127.0.0.1	localhost
+  127.0.1.1	minikube
+  192.168.99.1	host.minikube.internal
+  192.168.99.133	control-plane.minikube.internal
+  192.168.1.3	docker.local
+  ```
+  *(This is very stange: may be it's not needed ?)*
+
+10. Exit minikube ssh. (just type `exit` on command prompt and you should return to your machine)
 
 
 ## Using images in Deployments, Services, etc...
