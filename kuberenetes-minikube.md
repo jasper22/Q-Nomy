@@ -13,7 +13,7 @@ sudo mkdir -p /usr/local/bin/
 sudo install minikube /usr/local/bin/
 ```
 
-Please note: I'm using [VirtualBox](https://www.virtualbox.org/) as a driver for minikube - so download if necessary or use your other: [Minikube drivers](https://minikube.sigs.k8s.io/docs/drivers/)
+Please note: I'm using [VirtualBox](https://www.virtualbox.org/) as a driver for minikube - so download if necessary or use other: [Minikube drivers](https://minikube.sigs.k8s.io/docs/drivers/)
 
 ## Setup local Docker registry
 
