@@ -152,7 +152,7 @@ minikube addons enable registry-aliases
 2. Check where docker.service file located as we did above:
     `sudo systemctl status docker.service`
 3. Stop `docker` service: `sudo systemctl stop docker.service`
-4. Edit this file: `sudo vi /usr/lib/systemd/system/docker.service`
+4. Edit docker.service file: `sudo vi /usr/lib/systemd/system/docker.service` (*Note: Your location/path may be different*)
 5. At the same line that start with: `ExecStart=...` append: `--insecure-registry 192.168.1.3/24 --insecure-registry docker.local:5000`
 
 So now the file should look like this:
