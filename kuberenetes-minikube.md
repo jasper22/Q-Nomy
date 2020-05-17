@@ -274,3 +274,16 @@ That's it ! :)
 Now minkube docker registry pointing to my local machine custom docker registry.
 
 *Note:* Because we changed local `docker.service` file the local registry will be automatically started when computer reboots but sadly settings in minikube are lost when minikube started/stopped :(
+
+## My computer configuration
+(where it was created)
+
+Command|Output
+-------|-------
+`docker --version` | Docker version 19.03.8, build afacb8b7f0
+`uname -a` | Linux quick-dev 5.4.0-29-generic #33-Ubuntu SMP Wed Apr 29 14:32:27 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+`lsb_release -a` | Ubuntu 20.04 LTS, Release: 20.04, Codename: focal
+`minikube version` | minikube version: v1.10.1, commit: 63ab801ac27e5742ae442ce36dff7877dcccb278
+`kubectl version` | Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:56:40Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}, Server Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:48:36Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}
+
+
