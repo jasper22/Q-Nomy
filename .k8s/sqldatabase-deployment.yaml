@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
       - image: docker.local:5000/sqldatabase:1.0
-        imagePullPolicy: "Never"
+        imagePullPolicy: "Always"
         name: sqldatabase
         ports:
         - containerPort: 1433
