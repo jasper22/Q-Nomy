@@ -5,10 +5,9 @@ metadata:
   labels:
     app: q-nomy
 spec:
-    type: ClusterIP    
+    type: NodePort    
     ports:
       - port: 5000
-
         # name: "30003-to-5008"
         # nodePort: 30003
         # port: 5008
