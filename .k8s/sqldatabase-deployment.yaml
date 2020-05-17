@@ -43,7 +43,7 @@ spec:
         q.nomy: sqldatabase
     spec:
       containers:
-      - image: sqldatabase:1.0
+      - image: docker.local:5000/sqldatabase:1.0
         imagePullPolicy: "Never"
         name: sqldatabase
         ports:

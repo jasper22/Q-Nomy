@@ -5,10 +5,9 @@ metadata:
   labels:
     app: q-nomy
 spec:
-    type: NodePort    
+    type: ClusterIP    
     ports:
-      - nodePort: 30002
-        port: 5000
+      - port: 5000
 
         # name: "30003-to-5008"
         # nodePort: 30003
@@ -44,8 +43,8 @@ spec:
         q.nomy: webapi
     spec:
       containers:
-      - image: webapi:1.0
-        imagePullPolicy: "Never"
+      - image: docker.local:5000/webapi:1.0
+        imagePullPolicy: "Always"
         name: webapi
         ports:
         - containerPort: 5000

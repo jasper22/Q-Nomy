@@ -5,10 +5,9 @@ metadata:
   labels:
     app: q-nomy
 spec:
-    type: NodePort    
+    type: ClusterIP    
     ports:
-    - nodePort: 30001
-      port: 80
+    - port: 80
       # targetPort: 80
     selector:
         app: q-nomy
@@ -38,7 +37,7 @@ spec:
         q.nomy: clientapp
     spec:
       containers:
-      - image: clientapp:1.0
+      - image: docker.local:5000/clientapp:1.0
         imagePullPolicy: "Never"
         name: clientapp
         ports:
