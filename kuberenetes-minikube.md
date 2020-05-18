@@ -303,3 +303,13 @@ Command|Output
 `kubectl version` | Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:56:40Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}, Server Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.2", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:48:36Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}
 
 
+## Troubleshooting
+
+When Minikube started with `--insecure-registry docker.local:5000` this host: `docker.local` does added to `docker.service` systemctl Unit file but Minikube could not find this address :(
+So - if Minkube is restarted and deployment/pods/etc.. does not pull the image just:
+1. SSH to Minkube: `minkube ssh`
+2. Open `/etc/hosts` file: `sudo vi /etc/hosts`
+3. Append the line: `192.168.1.3  docker.local` to the end of file. Save and exit
+4. Restart docker: `sudo systemctl restart docker.service`
+5. Re-apply deployments/pods/etc...
+6. Now it should work !
