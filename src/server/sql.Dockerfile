@@ -1,5 +1,7 @@
+ARG DOCKER_REGISTRY_HOST
+
 # Prepare SQL Server 2019
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/mssql/server:2019-latest
 ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=Password1
 ENV MSSQL_SA_PASSWORD=Password1

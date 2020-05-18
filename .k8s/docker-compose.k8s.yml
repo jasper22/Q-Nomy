@@ -2,26 +2,20 @@ version: '3.1'
 
 services:
     clientapp:
-        image: clientapp:1.0
+        image: docker.local:5000/q-nomy/clientapp:1.0
         build:
             context: src/client
             dockerfile: webclient.Dockerfile
-            args:
-                - 'DOCKER_REGISTRY_HOST:${DOCKER_REGISTRY_HOST}'
-
         ports: 
             - "85:80"
         networks: 
             - local
     
     webapi:
-        image: webapi:1.0
+        image: docker.local:5000/q-nomy/webapi:1.0
         build:
             context:  src/server
             dockerfile: webapi.Dockerfile
-            args:
-                - 'DOCKER_REGISTRY_HOST:${DOCKER_REGISTRY_HOST}'
-
         ports:
             - "5000"
             - "5001"
@@ -34,13 +28,10 @@ services:
             - sqldatabase
 
     sqldatabase:
-        image: sqldatabase:1.0
+        image: docker.local:5000/q-nomy/sqldatabase:1.0
         build: 
             context: src/server
             dockerfile: sql.Dockerfile
-            args:
-                - 'DOCKER_REGISTRY_HOST:${DOCKER_REGISTRY_HOST}'
-
         ports: 
             - "1433"
             - "1487:1433"
