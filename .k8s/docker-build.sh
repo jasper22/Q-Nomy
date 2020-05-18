@@ -8,6 +8,7 @@ echo '\n\n'
 export DOCKER_REGISTRY_HOST="docker.local:5000"
 
 # docker-compose -f ../docker-compose.yml build --parallel --build-arg DOCKER_REGISTRY_HOST=${DOCKER_REGISTRY_HOST}
+# docker-compose push
 
 echo '-- Build client ------------------------------------------------------------'
 docker build -t $DOCKER_REGISTRY_HOST/clientapp:1.0 -f ../src/client/webclient.Dockerfile --build-arg DOCKER_REGISTRY_HOST=${DOCKER_REGISTRY_HOST} ../src/client/

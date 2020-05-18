@@ -14,7 +14,6 @@ RUN dotnet publish                              \
             --output ./dist/out                 \
             ./QNomy.csproj
 
-
 ARG DOCKER_REGISTRY_HOST
 
 FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/aspnet:3.1.4-alpine3.11
