@@ -17,6 +17,8 @@ services:
             context:  src/server
             dockerfile: webapi.Dockerfile
         ports:
+            - "5000"
+            - "5001"
             - "5007:5000"
             - "5008:5001"
         networks: 
@@ -31,6 +33,7 @@ services:
             context: src/server
             dockerfile: sql.Dockerfile
         ports: 
+            - "1433"
             - "1487:1433"
         networks: 
             local:
