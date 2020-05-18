@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
     clientapp:
+        image: clientapp:1.0
         build:
             context: src/client
             dockerfile: webclient.Dockerfile
@@ -11,6 +12,7 @@ services:
             - local
     
     webapi:
+        image: webapi:1.0
         build:
             context:  src/server
             dockerfile: webapi.Dockerfile
@@ -24,6 +26,7 @@ services:
             - sqldatabase
 
     sqldatabase:
+        image: sqldatabase:1.0
         build: 
             context: src/server
             dockerfile: sql.Dockerfile
