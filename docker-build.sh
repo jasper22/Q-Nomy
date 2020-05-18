@@ -20,4 +20,7 @@ docker push docker.local:5000/sqldatabase:1.0
 echo '-- Deploy to Kuberenetes ----------------------------------------'
 kubectl apply -f .k8s/
 
+echo '-- Adding host addresses to local computer ---------------------------------'
+echo "$(minikube ip) qnomy-local webapi-k8s.qnomy-local" | sudo tee -a /etc/hosts
+
 echo '-- All done ----------------------------------------------------------------'
