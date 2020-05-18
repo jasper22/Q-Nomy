@@ -8,11 +8,11 @@ spec:
     type: NodePort    
     ports:
       - name: "regular-port"
-        port: 5000
+        port: 80
         targetPort: 5000
-      - name: "secure-port"
-        port: 5001
-        targetPort: 5001
+      # - name: "secure-port"
+      #   port: 5001
+      #   targetPort: 5001
     selector:
         app: q-nomy
         role: webapi

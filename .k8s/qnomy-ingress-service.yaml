@@ -2,8 +2,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: qnomy-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1  
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /$1  
 spec:
   rules: 
   - host: qnomy-local
@@ -17,4 +17,6 @@ spec:
       paths:
         - backend:
             serviceName: webapi-frontend
-            servicePort: 5000
+            servicePort: 80   # Somehow Ingress in Minikube can not listen on other ports
+                              # So we set the available port 80 here and make a redirect to
+                              # actual port 5000 in webapi-frontend Service
