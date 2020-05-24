@@ -20,6 +20,20 @@ status:
 
 ---
 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+---      
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -42,6 +56,8 @@ spec:
         role: sqldatabase
         q.nomy: sqldatabase
     spec:
+      restartPolicy: Always
+      serviceAccountName: ""
       containers:
       - image: docker.local:5000/sqldatabase:1.0
         imagePullPolicy: "Always"
@@ -59,7 +75,12 @@ spec:
             port: 1433
           initialDelaySeconds: 10
           periodSeconds: 5
-      restartPolicy: Always
-      serviceAccountName: ""
-      volumes: null
+        volumeMounts: 
+          - mountPath: "/var/opt/mssql"
+            name: task-pv-storage
+      volumes:
+      - name: task-pv-storage
+        persistentVolumeClaim:
+          claimName: task-pv-claim  
+
 status: {}
