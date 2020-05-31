@@ -28,8 +28,8 @@ jobs:
         docker login docker.pkg.github.com --username ${GITHUB_ACTOR} --password ${{ secrets.GITHUB_TOKEN }}
         
         # Repository name must be lower-cased :(
-        # docker build src/server --file src/server/github.weblcient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/${GITHUB_REPOSITORY}/weblcient:${VERSION}
+        # docker build src/client --file src/client/github.weblcient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/${GITHUB_REPOSITORY}/weblcient:${VERSION}
         # docker push docker.pkg.github.com/${GITHUB_ACTOR}/${GITHUB_REPOSITORY}/weblcient:${VERSION}
         
-        docker build src/server --file src/server/github.weblcient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
+        docker build src/client --file src/client/github.weblcient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
         docker push docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
