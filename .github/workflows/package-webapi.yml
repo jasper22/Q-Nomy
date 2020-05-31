@@ -25,5 +25,10 @@ jobs:
       run: |
         VERSION=$(date +%s)
         docker login docker.pkg.github.com --username ${GITHUB_ACTOR} --password ${{ secrets.GITHUB_TOKEN }}
-        docker build src/server --file src/server/webapi.Dockerfile --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/webapi:${VERSION}
-        docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/webapi:${VERSION}
+        
+        # Repository name must be lower-cased :(
+        # docker build src/server --file src/server/webapi.Dockerfile --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/webapi:${VERSION}
+        # docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/webapi:${VERSION}
+        
+        docker build src/server --file src/server/webapi.Dockerfile --tag docker.pkg.github.com/q-nomy/webapi:${VERSION}
+        docker push docker.pkg.github.com/q-nomy/webapi:${VERSION}
