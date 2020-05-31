@@ -9,6 +9,8 @@ spec:
   capacity:
     storage: 2Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete   #Retain
   hostPath:
-    path: "/hostname"
+    path: "/hosthome/alex/minikube_pv_volume"
+    # path: "/data/q-nomy-data_pv/"

@@ -27,7 +27,7 @@ metadata:
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 2Gi
@@ -62,6 +62,15 @@ spec:
       - image: docker.local:5000/sqldatabase:1.0
         imagePullPolicy: "Always"
         name: sqldatabase
+        env:
+          - name: ACCEPT_EULA
+            value: "Y"
+          - name: SA_PASSWORD
+            value: "Password2"
+          - name: MSSQL_SA_PASSWORD
+            value: "Password2"
+          - name: MSSQL_PID
+            value: "Enterprise"
         ports:
         - containerPort: 1433
         resources: {}
