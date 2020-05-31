@@ -52,7 +52,7 @@ ENV DATABASE_SERVER localhost
 
 CMD /opt/mssql/bin/sqlservr & service nginx start && dotnet QNomy.dll 
 
-EXPOSE 1433
+EXPOSE 8081 6001
 
 # Run it like this:
 # docker run --rm -it  -p 6001:6001/tcp -p 8081:80/tcp one-container:latest
