@@ -2,7 +2,7 @@
 
 Q-Nomy home assigment
 
-![](https://github.com/jasper22/q-nomy/workflows/.github/workflows/docker-package.yml/badge.svg)
+![](https://github.com/jasper22/q-nomy/workflows/Build%20and%20push%20docker%20images%20to%20GitHub/badge.svg)
 
 
 עליך ליצור עמוד אינטרנט שבו כל משתמש יכול להכניס לתור, לקרוא לממתין ולצפות ברשימת הממתינים.
