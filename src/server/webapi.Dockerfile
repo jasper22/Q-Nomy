@@ -1,7 +1,7 @@
 ARG DOCKER_REGISTRY_HOST
 
 # Build .NET
-FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/sdk:3.1.202-alpine3.11 as build_dotnet
+FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/sdk:3.1-alpine as build_dotnet
 WORKDIR /app
 COPY QNomy.csproj /app/
 RUN dotnet restore
@@ -16,7 +16,7 @@ RUN dotnet publish                              \
 
 ARG DOCKER_REGISTRY_HOST
 
-FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/aspnet:3.1.4-alpine3.11
+FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
 COPY --from=build_dotnet /app/dist/out/ .
 ENV ASPNETCORE_URLS http://+:5000;https://+:5001
