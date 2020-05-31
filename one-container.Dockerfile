@@ -4,7 +4,7 @@ WORKDIR /client
 COPY src/client/package.json .
 RUN npm install
 COPY src/client/ .
-ARG configuration=production
+ARG configuration=one-container
 RUN npm run build -- --configuration=${configuration} --outputPath=./dist/out --deleteOutputPath=true --extractCss=true --aot=true --buildOptimizer=true
 
 # Build .NET
@@ -45,9 +45,14 @@ COPY src/client/ngnix-custom-2.conf /etc/nginx/nginx.conf
 WORKDIR /app
 COPY --from=build_dotnet /app/dist/out/ .
 # ENV ASPNETCORE_URLS http://+:5000;https://+:5001
-ENV ASPNETCORE_URLS http://+:5000
+
+# Port 6000 blocked by Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_Port_Blocking
+ENV ASPNETCORE_URLS http://+:6001
 ENV DATABASE_SERVER localhost
 
 CMD /opt/mssql/bin/sqlservr & service nginx start && dotnet QNomy.dll 
 
 EXPOSE 1433
+
+# Run it like this:
+# docker run --rm -it  -p 6001:6001/tcp -p 8081:80/tcp one-container:latest
