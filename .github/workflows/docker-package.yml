@@ -38,5 +38,5 @@ jobs:
         docker push docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/sql:${VERSION}
         
         # Angular
-        docker build src/client --file src/client/github.weblcient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
-        docker push docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
+        docker build src/client --file src/client/github.webclient.Dockerfile --tag docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/weblcient:${VERSION}
+        docker push docker.pkg.github.com/${GITHUB_ACTOR}/q-nomy/webclient:${VERSION}
