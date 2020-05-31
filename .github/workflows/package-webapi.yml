@@ -24,6 +24,7 @@ jobs:
     - name: Package Docker
       run: |
         VERSION=$(date +%s)
+        DOCKER_REGISTRY_HOST=docker.io
         docker login docker.pkg.github.com --username ${GITHUB_ACTOR} --password ${{ secrets.GITHUB_TOKEN }}
         
         # Repository name must be lower-cased :(
