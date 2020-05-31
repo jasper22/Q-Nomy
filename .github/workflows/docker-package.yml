@@ -1,4 +1,4 @@
-name: Build and push packages
+name: Build and push docker images to GitHub
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
