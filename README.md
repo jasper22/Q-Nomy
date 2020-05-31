@@ -5,7 +5,6 @@ Q-Nomy home assigment
 ![](https://github.com/jasper22/q-nomy/workflows/.github/workflows/docker-package.yml/badge.svg)
 
 
-
 עליך ליצור עמוד אינטרנט שבו כל משתמש יכול להכניס לתור, לקרוא לממתין ולצפות ברשימת הממתינים.
 העמוד צריך להיראות באופן הבא:
 
