@@ -29,6 +29,8 @@ namespace QNomy.SQL
 
                 var db = services.GetService(typeof(T)) as DbContext;
 
+                logger.LogInformation($"Connection string: {db.Database.GetDbConnection().ConnectionString}");
+
                 db.Database.Migrate();
             }
             catch (System.Exception ex)

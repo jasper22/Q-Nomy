@@ -76,7 +76,7 @@ namespace QNomy.Controllers
         /// <summary>
         /// Add new patient to database
         /// </summary>
-        /// <param name="patientName">Name of the patient.</param>
+        /// <param name="patientRequest">Request object.</param>
         /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Patient>> AddPatient([FromBody] NewPatientRequest patientRequest)
@@ -94,7 +94,7 @@ namespace QNomy.Controllers
 
                 var addedPatient = await this.dbContext.AddPatient(newPatient);
 
-                this.log.LogInformation($"New patient sucsesfully created with name: {addedPatient.Name}, ticket number = {addedPatient.TicketNumber} and visit time: {addedPatient.Time}");
+                this.log.LogInformation($"New patient successfully created with name: {addedPatient.Name}, ticket number = {addedPatient.TicketNumber} and visit time: {addedPatient.Time}");
                 
                 return CreatedAtAction(nameof(AddPatient), addedPatient);
             }
@@ -109,7 +109,7 @@ namespace QNomy.Controllers
         /// <summary>
         /// Handles the pation.
         /// </summary>
-        /// <param name="patient">The patient.</param>
+        /// <param name="patient">The Patient object.</param>
         /// <returns></returns>
         [HttpPut]
         public async Task<IActionResult> HandlePatient(Patient patient)
@@ -127,7 +127,7 @@ namespace QNomy.Controllers
             }
             catch (GeneralDbException expDb)
             {
-                this.log.LogError($"Exception occured while trying to update a record in database !", expDb.Message);
+                this.log.LogError($"Exception occurred while trying to update a record in database !", expDb.Message);
 
                 return StatusCode(500, expDb);
             }

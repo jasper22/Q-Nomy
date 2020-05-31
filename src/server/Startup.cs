@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -59,10 +60,19 @@ namespace QNomy
 
             services.AddDbContext<PatientsDbContext>(opt =>
             {
-                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                opt.UseSqlServer(GetConnectionStringFromVariable());
             });
 
             services.AddApplicationInsightsTelemetry();
+        }
+
+        private string GetConnectionStringFromVariable()
+        {
+            string connectionStringBase = "Server=##;Database=master;User Id=sa;Password=Password1;";
+
+            var environment = Environment.GetEnvironmentVariable("DATABASE_SERVER") ?? "localhost";
+
+            return connectionStringBase.Replace("##", environment);
         }
 
         /// <summary>
