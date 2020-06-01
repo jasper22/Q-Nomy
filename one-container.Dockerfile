@@ -47,7 +47,8 @@ RUN apt-get -y install dotnet-sdk-3.1
 # Configure Angular + Nginx
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build_angular /client/dist/out/ /usr/share/nginx/html
-COPY src/client/ngnix-custom-2.conf /etc/nginx/nginx.conf
+COPY src/client/ngnix-custom-2.conf /etc/nginx/conf.d/default.conf
+RUN chmod a+r /etc/nginx/conf.d/default.conf
 
 # Configure WebAPI project
 WORKDIR /app
@@ -56,14 +57,16 @@ COPY --from=build_dotnet /app/dist/out/ .
 
 # Port 6000 blocked by Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_Port_Blocking
 ENV ASPNETCORE_URLS http://+:6001
+
 ENV DATABASE_SERVER localhost
 ENV DATABASE_TYPE POSTGRES
 ENV DB_PASSWORD Password1
 ENV DB_USER user01
 
-# CMD /opt/mssql/bin/sqlservr & service nginx start && dotnet QNomy.dll 
+ENV POSTGRES_USER user01
+ENV POSTGRES_PASSWORD Password1
 
-CMD entrypoint.sh & service nginx start && dotnet QNomy.dll 
+CMD docker-entrypoint.sh -c 'max_connections=200' && postgres & /usr/sbin/service nginx start && sleep 10 && dotnet QNomy.dll
 
 EXPOSE 8081 6001
 
