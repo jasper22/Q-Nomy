@@ -22,19 +22,27 @@ RUN dotnet publish                              \
             ./QNomy.csproj
 
 
-# Prepare SQL Server 2019
-FROM docker.local:5000/mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-16.04
+# # Prepare SQL Server 2019
+# FROM docker.local:5000/mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-16.04
 
-# SQL Settins
-ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=Password1
-ENV MSSQL_SA_PASSWORD=Password1
-ENV MSSQL_PID=Express
+# # SQL Settins
+# ENV ACCEPT_EULA=Y
+# ENV SA_PASSWORD=Password1
+# ENV MSSQL_SA_PASSWORD=Password1
+# ENV MSSQL_PID=Express
 
-USER root
+# USER root
+
+FROM docker.local:5000/postgress:13
+
+# Prepare image
+RUN apt-get update && apt-get install -y apt-transport-https wget nginx
+
+# Install .NET Core package
+RUN wget https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && dpkg -i packages-microsoft-prod.deb && apt-get update
 
 # Install .NET Core SDK + Nginx
-RUN apt-get update && apt-get install -y apt-transport-https && apt-get -y install dotnet-sdk-3.1 && apt-get install -y nginx
+RUN apt-get -y install dotnet-sdk-3.1 
 
 # Configure Angular + Nginx
 RUN rm -rf /usr/share/nginx/html/*
@@ -49,8 +57,13 @@ COPY --from=build_dotnet /app/dist/out/ .
 # Port 6000 blocked by Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Mozilla_Port_Blocking
 ENV ASPNETCORE_URLS http://+:6001
 ENV DATABASE_SERVER localhost
+ENV DATABASE_TYPE POSTGRES
+ENV DB_PASSWORD Password1
+ENV DB_USER user01
 
-CMD /opt/mssql/bin/sqlservr & service nginx start && dotnet QNomy.dll 
+# CMD /opt/mssql/bin/sqlservr & service nginx start && dotnet QNomy.dll 
+
+CMD entrypoint.sh & service nginx start && dotnet QNomy.dll 
 
 EXPOSE 8081 6001
 

@@ -60,19 +60,37 @@ namespace QNomy
 
             services.AddDbContext<PatientsDbContext>(opt =>
             {
-                opt.UseSqlServer(GetConnectionStringFromVariable());
+                Initialize(opt);
             });
 
             services.AddApplicationInsightsTelemetry();
         }
 
-        private string GetConnectionStringFromVariable()
+        private void Initialize(DbContextOptionsBuilder opt)
         {
-            string connectionStringBase = "Server=##;Database=master;User Id=sa;Password=Password1;";
+            var dbType = Environment.GetEnvironmentVariable("DATABASE_TYPE") ?? string.Empty;
+            var dbServerAddress = Environment.GetEnvironmentVariable("DATABASE_SERVER") ?? string.Empty;
+            var dbUserName = Environment.GetEnvironmentVariable("DB_USER") ?? string.Empty;
+            var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? string.Empty;
 
-            var environment = Environment.GetEnvironmentVariable("DATABASE_SERVER") ?? "localhost";
+            string connectionStringBase = string.Empty;
 
-            return connectionStringBase.Replace("##", environment);
+            switch(dbType)
+            {
+                case "POSTGRES":
+                    connectionStringBase = $"User ID={dbUserName};Password={dbPassword};Host={dbServerAddress};Port=5432;Pooling=true;MinPoolSize=5;MaxPoolSize=50;";
+                    opt.UseNpgsql(connectionStringBase);
+                    break;
+                    
+                case "MYSQL":
+                    connectionStringBase = $"User Id={dbUserName};Password={dbPassword};Server={dbServerAddress};";
+                    opt.UseSqlServer(connectionStringBase);
+                    break;
+
+                default:
+                    throw new ApplicationException("Database type is not defined in environment variables !");
+                    break;
+            }
         }
 
         /// <summary>

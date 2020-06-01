@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QNomy;
@@ -21,21 +22,24 @@ namespace QNomy.SQL
         {
             var services = webHost.Services;
 
-            var logger = services.GetService(typeof(ILogger<Program>)) as ILogger<Program>;
-
-            try
+            using(var scope = services.CreateScope())
             {
-                logger.LogInformation($"Starting to migrate the database");
+                var logger = scope.ServiceProvider.GetService(typeof(ILogger<Program>)) as ILogger<Program>;
 
-                var db = services.GetService(typeof(T)) as DbContext;
+                try
+                {
+                    logger.LogInformation($"Starting to migrate the database");
 
-                logger.LogInformation($"Connection string: {db.Database.GetDbConnection().ConnectionString}");
+                    var db = scope.ServiceProvider.GetService(typeof(T)) as DbContext;
 
-                db.Database.Migrate();
-            }
-            catch (System.Exception ex)
-            {
-                logger.LogError(ex, "An error occurred while migrating the database.");
+                    logger.LogInformation($"Connection string: {db.Database.GetDbConnection().ConnectionString}");
+
+                    db.Database.Migrate();
+                }
+                catch (System.Exception ex)
+                {
+                    logger.LogError(ex, "An error occurred while migrating the database.");
+                }
             }
 
             return webHost;            

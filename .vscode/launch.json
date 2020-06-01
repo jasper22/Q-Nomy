@@ -20,7 +20,13 @@
                 "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS" : "http://[::1]:0",       // https://andrewlock.net/how-to-automatically-choose-a-free-port-in-asp-net-core/      +   https://andrewlock.net/5-ways-to-set-the-urls-for-an-aspnetcore-app/
+                "DATABASE_TYPE" : "POSTGRES",
+                "DATABASE_SERVER" : "localhost",
+                "DB_USER" : "alex",
+                "DB_PASSWORD" : "alex123"
+
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
