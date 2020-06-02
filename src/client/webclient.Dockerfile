@@ -19,6 +19,7 @@ COPY --from=build_angular /client/dist/out/ /usr/share/nginx/html
 COPY ngnix-custom.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/sbin/service", "nginx", "start"]
 
 LABEL "qnomy"="frontend"

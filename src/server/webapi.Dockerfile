@@ -29,7 +29,7 @@ ENV ASPNETCORE_URLS http://+:5000
 #ENV DB_USER user01
 
 EXPOSE 5000 5001
-ENTRYPOINT ["dotnet", "QNomy.dll"]
+CMD ["dotnet", "QNomy.dll"]
 # CMD "/bin/sh"
 # CMD tail -f /dev/null
 
