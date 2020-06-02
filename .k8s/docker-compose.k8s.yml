@@ -16,11 +16,14 @@ services:
         build:
             context:  src/server
             dockerfile: webapi.Dockerfile
+        environment:
+            - DATABASE_SERVER=sqldatabase
+            - DATABASE_TYPE=POSTGRES
+            - DB_PASSWORD=Password1
+            - DB_USER=user01            
         ports:
             - "5000"
             - "5001"
-            - "5007:5000"
-            - "5008:5001"
         networks: 
             - local
         depends_on:
@@ -33,8 +36,7 @@ services:
             context: src/server
             dockerfile: sql.Dockerfile
         ports: 
-            - "1433"
-            - "1487:1433"
+            - "5432"
         networks: 
             local:
                 aliases: 

@@ -23,6 +23,9 @@ services:
                 - 'DOCKER_REGISTRY_HOST:${DOCKER_REGISTRY_HOST}'
         environment:
             - DATABASE_SERVER=sqldatabase
+            - DATABASE_TYPE=POSTGRES
+            - DB_PASSWORD=Password1
+            - DB_USER=user01
         ports:
             - "5000"
             - "5001"
