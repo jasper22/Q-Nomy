@@ -21,7 +21,8 @@ services:
             dockerfile: webapi.Dockerfile
             args:
                 - 'DOCKER_REGISTRY_HOST:${DOCKER_REGISTRY_HOST}'
-
+        environment:
+            - DATABASE_SERVER=sqldatabase
         ports:
             - "5000"
             - "5001"

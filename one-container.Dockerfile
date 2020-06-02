@@ -47,7 +47,7 @@ RUN apt-get -y install dotnet-sdk-3.1
 # Configure Angular + Nginx
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build_angular /client/dist/out/ /usr/share/nginx/html
-COPY src/client/ngnix-custom-2.conf /etc/nginx/conf.d/default.conf
+COPY src/client/ngnix-custom.conf /etc/nginx/conf.d/default.conf
 RUN chmod a+r /etc/nginx/conf.d/default.conf
 
 # Configure WebAPI project

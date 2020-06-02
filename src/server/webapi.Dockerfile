@@ -19,7 +19,15 @@ ARG DOCKER_REGISTRY_HOST
 FROM ${DOCKER_REGISTRY_HOST}/mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
 COPY --from=build_dotnet /app/dist/out/ .
+
 ENV ASPNETCORE_URLS http://+:5000;https://+:5001
+
+ENV DATABASE_SERVER localhost
+ENV DATABASE_TYPE POSTGRES
+ENV DB_PASSWORD Password1
+ENV DB_USER user01
+
 EXPOSE 5000 5001
 ENTRYPOINT ["dotnet", "QNomy.dll"]
+
 LABEL "qnomy"="webapi"
