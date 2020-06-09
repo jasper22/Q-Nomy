@@ -11,8 +11,13 @@ RUN dotnet publish                              \
             --configuration ${configuration}    \
             --nologo                            \
             --no-restore                        \
+            -p:PublishTrimmed=true              \
+            -p:PublishSingleFile=true           \
+            -r linux-x64                        \
             --output ./dist/out                 \
             ./QNomy.csproj
+
+#           -p:PublishReadyToRun=true           \            
 
 ARG DOCKER_REGISTRY_HOST
 
