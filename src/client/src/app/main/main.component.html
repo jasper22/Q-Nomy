@@ -39,7 +39,7 @@
       <div class="clr-form-control clr-row">
         <label class="clr-control-label clr-col-12 clr-col-md-2">Patient name</label>
         <div class="clr-col-12 clr-col-md-10">
-            <button style="float: right;" disabled="{{patientName.errors}}" [clrLoading]="addPatientButtonState" class="btn btn-success-outline" (click)="addPatientName()">Add patient</button>
+            <button style="float: right;" [disabled]="!patientName.valid" [clrLoading]="addPatientButtonState" class="btn btn-success-outline" (click)="addPatientName()">Add patient</button>
             <input id="patientName" class="clr-input clr-col-9 clr-col-md-9" placeholder="Enter patient name here" [formControl]="patientName" />
             <div *ngIf="patientName.errors && (patientName.dirty || patientName.touched)" class="alert alert-danger">
               <div *ngIf="patientName.errors.required">

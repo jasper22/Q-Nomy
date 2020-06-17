@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/src/server/bin/Debug/netcoreapp3.1/QNomy.dll",
-            "args": [],
+            "args": ["--urls","https://localhost:8001;http://localhost:8000"],
             "cwd": "${workspaceFolder}/src/server",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser

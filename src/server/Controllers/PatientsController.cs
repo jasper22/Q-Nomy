@@ -16,7 +16,6 @@ namespace QNomy.Controllers
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]
     [Route("api/v1/[controller]")]
-    [ApiVersion("1.0")]
     public class PatientsController : ControllerBase
     {
         private readonly IRepository dbContext;

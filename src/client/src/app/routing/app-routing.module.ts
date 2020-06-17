@@ -5,7 +5,8 @@ import { NotExistComponent } from '../not-exist/not-exist.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
+  {path: '', redirectTo: '/app', pathMatch: 'full'},
+  {path: 'app', component: MainComponent, pathMatch: 'full'},
   {path: '**', component: NotExistComponent}
 ];
 
